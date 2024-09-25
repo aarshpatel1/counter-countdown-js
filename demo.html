@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+
+<body>
+    <button id="myButton">Click here</button>
+
+    <script>
+        let intervalId;
+        let isRunning = false;
+
+        const button = document.getElementById('myButton');
+
+        button.addEventListener('click', () => {
+            if (!isRunning) {
+                intervalId = setInterval(() => {
+                    // Code to execute repeatedly
+                    console.log("Interval running...");
+                }, 1000);
+                isRunning = true;
+                button.textContent = "Stop Interval";
+            } else {
+                clearInterval(intervalId);
+                isRunning = false;
+                button.textContent = "Start Interval";
+            }
+        });
+    </script>
+</body>
+
+</html>

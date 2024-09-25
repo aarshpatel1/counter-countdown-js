@@ -1,0 +1,5 @@
+#counting::after {
+    content: "s";
+    margin-left: 8px;
+    font-size: 3.5rem;
+}
