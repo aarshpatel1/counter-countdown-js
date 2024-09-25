@@ -5,7 +5,7 @@ const resetBtn = $("#resetBtn");
 const showAlerts = document.querySelector("#alert")
 
 let countdown = parseInt(counting.innerText);
-var start, pause, reset
+var start
 
 startBtn.on("click", function () {
     clearInterval(start)
@@ -17,8 +17,20 @@ startBtn.on("click", function () {
     `
     let customTime = document.querySelector("#countdown").value
     if (customTime) {
-        console.log(customTime)
-        countdown = customTime
+        if (customTime > 0) {
+            // console.log(customTime)
+            countdown = customTime
+        } else {
+            showAlerts.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div>Hey! Enter the positive value...!</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            `
+            // counting.innerText = 10
+            // countdown = 10
+            // clearInterval(start)
+        }
     }
     start = setInterval(() => {
         if (countdown > 0) {
