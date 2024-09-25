@@ -1,9 +1,14 @@
 * {
     color: var(--main-color);
+    font-family: "Roboto Mono", monospace;
 }
 
 iconify-icon {
     transform: translateY(2px);
+}
+
+section {
+    height: 100dvh;
 }
 
 :root {
@@ -39,7 +44,7 @@ iconify-icon {
 .card-side::before {
     position: absolute;
     content: 'Counter';
-    left: -70px;
+    left: -85px;
     top: 0;
     width: 100px;
     text-decoration: underline;
