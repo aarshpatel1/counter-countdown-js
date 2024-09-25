@@ -1,3 +1,26 @@
+// counter logic
+const increaseBtn = $("#increase")
+const decreaseBtn = $("#decrease")
+const reset = $("#reset")
+const counter = document.querySelector("#counter")
+let count = parseInt(counter.innerText)
+
+increaseBtn.on("click", function () {
+    count++;
+    counter.innerText = count
+})
+
+decreaseBtn.on("click", function () {
+    count--;
+    counter.innerText = count
+})
+
+reset.on("click", function () {
+    count = 0
+    counter.innerText = count
+})
+
+// countdown logic
 const counting = document.querySelector("#counting")
 const startBtn = $("#startBtn");
 const pauseBtn = $("#pauseBtn");

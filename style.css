@@ -2,8 +2,11 @@
     color: var(--main-color);
 }
 
-/* new ui */
-.wrapper {
+iconify-icon {
+    transform: translateY(2px);
+}
+
+:root {
     --input-focus: #2d8cf0;
     --font-color: #323232;
     --font-color-sub: #666;
@@ -13,6 +16,11 @@
     /* display: flex; */
     /* flex-direction: column; */
     /* align-items: center; */
+}
+
+.alert-primary {
+    background-color: lightgray;
+    border: none;
 }
 
 /* switch card */
@@ -30,7 +38,7 @@
 
 .card-side::before {
     position: absolute;
-    content: 'Log in';
+    content: 'Counter';
     left: -70px;
     top: 0;
     width: 100px;
@@ -127,6 +135,7 @@
 
 .flip-card__front,
 .flip-card__back {
+    width: 100%;
     padding: 20px;
     position: absolute;
     display: flex;
@@ -160,7 +169,8 @@
     text-align: center;
 }
 
-#counting {
+#counting,
+#counter {
     font-size: 5rem;
     font-weight: bold;
 }
