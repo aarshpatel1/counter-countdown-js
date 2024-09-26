@@ -62,6 +62,5 @@ Feel free to contribute to this project by submitting a pull request. Any improv
 ---
 **Author**: Aarsh Patel  
 **GitHub**: [@aarshpatel1](https://github.com/aarshpatel1)
-```
 
 This `README.md` provides a description of the project, explains how it works, and gives instructions on how to use it or run it locally.
