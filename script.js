@@ -30,29 +30,41 @@ const showAlerts = document.querySelector("#alert")
 let countdown = parseInt(counting.innerText);
 var start
 
+function autoFadeAlert() {
+    // Set timeout to hide the alert after 5 seconds
+    setTimeout(function () {
+        // Fade out the alert
+        let alert = document.getElementById('autoFadeAlert');
+        if (alert) {
+            alert.classList.remove('show'); // Remove the 'show' class to start fading
+            setTimeout(function () {
+                alert.remove(); // Optionally remove the alert from the DOM after fade out
+            }, 500); // Delay the removal slightly to match the fade-out duration
+        }
+    }, 5000); // 5 seconds delay
+}
+
 startBtn.on("click", function () {
     clearInterval(start)
     showAlerts.innerHTML = `
-    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <div class="alert alert-primary alert-dismissible fade show" role="alert" id="autoFadeAlert">
         <div>Hey! Your countdown started...!</div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     `
+    autoFadeAlert(); // Call the fade-out function after creating the alert
+
     let customTime = document.querySelector("#countdown").value
     if (customTime) {
         if (customTime > 0) {
-            // console.log(customTime)
             countdown = customTime
         } else {
             showAlerts.innerHTML = `
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <div>Hey! Enter the positive value...!</div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="autoFadeAlert">
+                <div>Hey! Enter a positive value...!</div>
             </div>
             `
-            // counting.innerText = 10
-            // countdown = 10
-            // clearInterval(start)
+            autoFadeAlert();
+            return; // Exit to prevent countdown from starting
         }
     }
     start = setInterval(() => {
@@ -60,36 +72,34 @@ startBtn.on("click", function () {
             countdown -= 1
             counting.innerText = countdown
         } else {
-            // alert("Time Out")
             clearInterval(start)
             showAlerts.innerHTML = `
-             <div class="alert alert-success alert-dismissible" role="alert">
+             <div class="alert alert-success alert-dismissible fade show" role="alert" id="autoFadeAlert">
                 <div>Hey! Your countdown is complete...!</div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             `
+            autoFadeAlert();
         }
     }, 1000);
 })
 
 pauseBtn.on("click", function () {
     showAlerts.innerHTML = `
-    <div class="alert alert-warning alert-dismissible" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="autoFadeAlert">
         <div>Hey! Click start to continue countdown...!</div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     `
+    autoFadeAlert();
     clearInterval(start)
 })
 
-
 resetBtn.on("click", function () {
     showAlerts.innerHTML = `
-    <div class="alert alert-danger alert-dismissible" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="autoFadeAlert">
         <div>Hey! You've reset the countdown...!</div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     `
+    autoFadeAlert(); // Call the fade-out function for the reset alert
     clearInterval(start)
     counting.innerText = 10
     countdown = 10
