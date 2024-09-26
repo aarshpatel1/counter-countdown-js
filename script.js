@@ -70,7 +70,11 @@ startBtn.on("click", function () {
     start = setInterval(() => {
         if (countdown > 0) {
             countdown -= 1
-            counting.innerText = countdown
+            let seconds = countdown % 60
+            let minutes = parseInt(countdown / 60)
+            let formattedSeconds = seconds.toString().padStart(2, '0');
+            let formattedMinutes = minutes.toString().padStart(2, '0')
+            counting.innerText = `${formattedMinutes}:${formattedSeconds}`
         } else {
             clearInterval(start)
             showAlerts.innerHTML = `
