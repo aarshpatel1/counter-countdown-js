@@ -1,5 +1,5 @@
 * {
-    color: var(--main-color);
+    color: light-dark(var(--main-color), var(--main-color-dark));
     font-family: "Roboto Mono", monospace;
 }
 
@@ -12,19 +12,23 @@ section {
 }
 
 :root {
+    color-scheme: light dark;
     --input-focus: #2d8cf0;
+    --input-focus-dark: #08386a;
     --font-color: #323232;
+    --font-color-dark: #141414;
     --font-color-sub: #666;
+    --font-color-sub-dark: #292929;
     --bg-color: #fff;
+    --bg-color-dark: #666666;
     --bg-color-alt: #666;
+    --bg-color-alt-dark: #292929;
     --main-color: #323232;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
+    --main-color-dark: #141414;
 }
 
 .alert-primary {
-    background-color: lightgray;
+    background-color: light-dark(lightgray, #545454);
     border: none;
 }
 
@@ -48,7 +52,7 @@ section {
     top: 0;
     width: 100px;
     text-decoration: underline;
-    color: var(--font-color);
+    color: light-dark(var(--font-color), var(--font-color-dark));
     font-weight: 600;
 }
 
@@ -59,7 +63,7 @@ section {
     top: 0;
     width: 100px;
     text-decoration: none;
-    color: var(--font-color);
+    color: light-dark(var(--font-color), var(--font-color-dark));
     font-weight: 600;
 }
 
@@ -72,15 +76,15 @@ section {
 .slider {
     box-sizing: border-box;
     border-radius: 5px;
-    border: 2px solid var(--main-color);
-    box-shadow: 4px 4px var(--main-color);
+    border: 2px solid light-dark(var(--main-color), var(--main-color-dark));
+    box-shadow: 4px 4px light-dark(var(--main-color), var(--main-color-dark));
     position: absolute;
     cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--bg-colorcolor);
+    background-color: light-dark(var(--bg-color), var(--bg-color-dark));
     transition: 0.3s;
 }
 
@@ -90,17 +94,17 @@ section {
     content: "";
     height: 20px;
     width: 20px;
-    border: 2px solid var(--main-color);
+    border: 2px solid light-dark(var(--main-color), var(--main-color-dark));
     border-radius: 5px;
     left: -2px;
     bottom: 2px;
-    background-color: var(--bg-color);
-    box-shadow: 0 3px 0 var(--main-color);
+    background-color: light-dark(var(--bg-color), var(--bg-color-dark));
+    box-shadow: 0 3px 0 light-dark(var(--main-color), var(--main-color-dark));
     transition: 0.3s;
 }
 
 .toggle:checked+.slider {
-    background-color: var(--font-color-sub);
+    background-color: light-dark(var(--font-color-sub-dark), var(--font-color-sub-dark));
 }
 
 .toggle:checked+.slider:before {
@@ -151,8 +155,8 @@ section {
     background: lightgrey;
     gap: 20px;
     border-radius: 5px;
-    border: 2px solid var(--main-color);
-    box-shadow: 4px 4px var(--main-color);
+    border: 2px solid light-dark(var(--main-color), var(--main-color-dark));
+    box-shadow: 4px 4px light-dark(var(--main-color), var(--main-color-dark));
 }
 
 .flip-card__back {
@@ -190,9 +194,9 @@ section {
     width: 250px;
     height: 40px;
     border-radius: 5px;
-    border: 2px solid var(--main-color);
-    background-color: var(--bg-color);
-    box-shadow: 4px 4px var(--main-color);
+    border: 2px solid light-dark(var(--main-color), var(--main-color-dark));
+    background-color: light-dark(var(--bg-color), var(--bg-color-dark));
+    box-shadow: 4px 4px light-dark(var(--main-color), var(--main-color-dark));
     font-size: 15px;
     font-weight: 600;
     color: var(--font-color);
@@ -201,17 +205,17 @@ section {
 }
 
 .flip-card__input::placeholder {
-    color: var(--font-color-sub);
+    color: light-dark(var(--font-color-sub), var(--font-color-sub-dark));
     opacity: 0.8;
 }
 
 .flip-card__input:focus {
-    border: 2px solid var(--input-focus);
+    border: 2px solid light-dark(var(--input-focus-dark), var(--input-focus-dark));
 }
 
 .flip-card__btn:active,
 .button-confirm:active {
-    box-shadow: 0px 0px var(--main-color);
+    box-shadow: 0px 0px light-dark(var(--main-color), var(--main-color-dark));
     transform: translate(3px, 3px);
 }
 
@@ -221,9 +225,9 @@ section {
     margin: 4px;
     height: 40px;
     border-radius: 5px;
-    border: 2px solid var(--main-color);
-    background-color: var(--bg-color);
-    box-shadow: 4px 4px var(--main-color);
+    border: 2px solid light-dark(var(--main-color), var(--main-color-dark));
+    background-color: light-dark(var(--bg-color), var(--bg-color-dark));
+    box-shadow: 4px 4px light-dark(var(--main-color), var(--main-color-dark));
     font-size: 17px;
     font-weight: 600;
     color: var(--font-color);
